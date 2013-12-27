@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<project name="restartUCM">
+ <target name="restartUCM">
+  <exec executable="echo y | C:\plink\plink.exe">
+   <arg value="-ssh"/>
+   <arg value="-pw"/>
+   <arg value="password"/>
+   <arg value="username@host"/>
+   <arg value="/home/username/restart_ucm.sh"/>
+  </exec>
+ </target>
+</project>
