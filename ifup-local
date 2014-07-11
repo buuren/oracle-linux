@@ -1,0 +1,20 @@
+#!/bin/bash
+# CHECK IF ETH0...
+
+if [[ "$1" == "eth0" ]]; then
+
+while true; do
+
+        current_ip=`ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}'`
+
+        if [[ "$current_ip" =~ "172.28" ]]; then
+                sed -i '3s/.*/'${current_ip}' earchive.ucm11g earchive/' /etc/hosts
+                exit 1
+        else
+                sleep 5
+        fi
+
+
+done
+
+fi
